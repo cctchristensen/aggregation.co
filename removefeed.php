@@ -14,27 +14,20 @@ die("ERROR: Could not connect. " . mysqli_connect_error());
 
 
 
-$add_new_feed = mysqli_real_escape_string($link, $_REQUEST['add_new_feed']);
-
-
-// attempt insert query execution
+$remove_feed = mysqli_real_escape_string($link, $_REQUEST['remove_feed']);
 
 
 
 
-$sql = "INSERT IGNORE INTO feeds VALUES ('1', '1', '$add_new_feed')";
+$sql = "DELETE FROM feeds WHERE link = '$remove_feed' ";
 
+//mysql_select_db('cornfedcms');
 if(mysqli_query($link, $sql)){
-
-	echo "Records added successfully or was already in database. Use back button or wait 5 seconds...";
-
-} 
-else{
-
-	echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-
-
+	echo "Feed removed! Use back button or wait 5 seconds...";
+}else{
+	"No such feed exists! Use back button or wait 5 seconds...";
 }
+
 
 // close connection
 
