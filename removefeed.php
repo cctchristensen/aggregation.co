@@ -23,9 +23,9 @@ $sql = "DELETE FROM feeds WHERE link = '$remove_feed' ";
 
 //mysql_select_db('cornfedcms');
 if(mysqli_query($link, $sql)){
-	echo "Feed removed! Use back button or wait 5 seconds...";
+	echo "Feed removed or did not exist! Use back button or wait 5 seconds...";
 }else{
-	"No such feed exists! Use back button or wait 5 seconds...";
+	"ERROR: COULD NOT MODIFY DB! Use back button or wait 5 seconds...";
 }
 
 
